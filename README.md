@@ -1,15 +1,13 @@
 ShakerCalculator
 ================
-A very basic calculator. It's my first Android app, so take it easy. Order of operations is left-to-right. The logic is basically string processing. You wouldn't want to use this calculator for every day use  -- it's not *that* bad, certainly better than many other open source Android calculators I've seen, but it won't compare to the default calculator or any on the app store.
+A very basic calculator as my first Android app. Order of operations is left-to-right. The logic is basically string processing. You wouldn't want to use this calculator for every day use--it's not *that* bad, certainly better than many other open source Android calculators I've seen, but it won't compare to the default calculator or any on the app store.
 
 In the words of Linus, "Go wild, fork the project, and prove your point. Show everybody that you can make improvements."
 
 ### TODO
 - add screenshots (landscape and portrait mode)
-- fix bugs
-  - cannot place double zeroes
 - add feature that lets you continue using your answer in a new operation
-- add the most important feature, shake-to-calculate! err, I mean shake-to-clear!
+- add the most important feature: shake support (or cut it and rename the project)
 
 MIT Licensed
 ------------
