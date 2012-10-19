@@ -162,7 +162,7 @@ public class MainActivity extends Activity {
     	if (endsWithOperator())
     	{
     		display("incorrect format");
-    		value = "";
+    		resetCalculator();
     		return;
     	}
     		
