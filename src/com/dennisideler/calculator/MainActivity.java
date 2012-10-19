@@ -96,17 +96,13 @@ public class MainActivity extends Activity {
     	tvAns.setText(s);
     }
     
-    private void safelyPlaceOperand(String op) // FIXME: this doesn't allow double zeroes at all! don't check end, check front of last operand
+    private void safelyPlaceOperand(String op)
     {
-    	if (op.equals("0") && !value.endsWith(op))  // Avoid double zeroes.
-    	{
-    		value += op;
-    	}
-    	else
-    	{
-    		deleteLeadingZero();
-    		value += op;
-    	}
+    	int operator_idx = findLastOperator();
+    	// Avoid double zeroes in cases where it's illegal (e.g. 00 -> 0, 01 -> 1, 1+01 -> 1+1).
+    	if (operator_idx != value.length()-1 && value.charAt(operator_idx+1) == '0')
+    		deleteTrailingZero(); 
+    	value += op;
     }
     
     private void safelyPlaceOperator(String op)
@@ -125,7 +121,7 @@ public class MainActivity extends Activity {
     	// else: Operator by itself is an illegal operation, do not place operator.
     }
     
-    private void deleteLeadingZero()
+    private void deleteTrailingZero()
     {
     	if (value.endsWith("0")) deleteFromLeft();
     }
@@ -149,6 +145,15 @@ public class MainActivity extends Activity {
     {
     	if (value.endsWith(ADD) || value.endsWith(SUB) || value.endsWith(MUL) || value.endsWith(DIV)) return true;
     	else return false;
+    }
+    
+    private int findLastOperator()
+    {
+    	int add_idx = value.lastIndexOf(ADD);
+    	int sub_idx = value.lastIndexOf(SUB);
+    	int mul_idx = value.lastIndexOf(MUL);
+    	int div_idx = value.lastIndexOf(DIV);
+    	return Math.max(add_idx, Math.max(sub_idx, Math.max(mul_idx, div_idx)));
     }
     
     public void calculate(View view)  // Note: only called by the '=' button.
