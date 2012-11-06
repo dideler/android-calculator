@@ -7,7 +7,7 @@ In the words of Linus, "Go wild, fork the project, and prove your point. Show ev
 ### TODO
 - add screenshots (landscape and portrait mode)
 - add feature that lets you continue using your answer in a new operation
-- add the most important feature: shake support (or cut it and rename the project)
+- add the coolest feature: shake to clear the screen (i.e. the last operation)
 
 MIT Licensed
 ------------
